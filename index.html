@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Seguro No Pagamos Cooperativa</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+</head>
+<body>
+    <h1 id="company_name">Seguro No Pagamos Cooperativa</h1>
+    <div class="contact_section">
+        <h1 id="contact_title">Contacto</h1>
+        <form action="submit" class="contact-form" id="contact-form-id">
+            <div class="element-contact-form">
+                <label for="name">Nombre:</label>
+                <input type="text" id="name">
+            </div>
+            <div class="element-contact-form">
+                <label for="lastname">Apellido:</label>
+                <input type="text" id="lastname">
+            </div>
+            <div class="element-contact-form">
+                <label for="dni">DNI:</label>
+                <input type="text" id="dni">
+            </div>
+            <div class="element-contact-form">
+    p            <label for="email">Email:</label>
+                <input type="text" id="email">
+            </div>
+            <div class="element-contact-form">
+                <label for="phone">Telefono:</label>
+                <input type="text" id="phone">
+            </div>
+            <div class="element-contact-form">
+                <label for="policy_type_selector">Tipo de seguro:</label>
+                <select onchange="showPolicyTypeVal()" name="policy_type" id="policy_type_selector">
+                    <option value="basic">Básico</option>
+                    <option value="intermedium">Intermedio</option>
+                    <option value="premium">Premium</option>
+                </select>
+            </div>
+        </form>
+        <div id="value_policy_selected" hidden></div>
+        <button onclick="submitContactForm()" value="Submit">Submit</button>
+    </div>
+</body>
+</html>
