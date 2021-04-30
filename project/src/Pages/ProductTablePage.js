@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react"
-import Row from "./table/Rows/Row";
-import Headers from "./table/Headers";
+import Row from "../Componets/table/Rows/Row";
+import Headers from "../Componets/table/Headers";
 
-function ProductTable(props){
+function ProductTablePage(props){
 
     const [filter, setFilter] = useState(9)
     const [products, setProducts] = useState()
@@ -64,4 +64,4 @@ function ProductTable(props){
         }
     }
 }
-export default ProductTable;
+export default ProductTablePage;

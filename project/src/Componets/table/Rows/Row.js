@@ -10,7 +10,7 @@ function Row(props){
             <td>{id}</td>
             <td>{title}</td>
             <td>{description}</td>
-            <DetailsCell details={details}></DetailsCell>
+            <DetailsCell product={props.element}></DetailsCell>
             <ImageCell url={image}></ImageCell>
             <td>{price}</td>
             <Buy product ={props.element}/>
