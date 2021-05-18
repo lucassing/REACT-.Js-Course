@@ -1,22 +1,60 @@
-import React, { Component } from "react"
-import RegisterField from "../Componets/RegisterField"
+import React, { Component, useState } from "react"
+import RegisterField from "../Componets/Register/RegisterField"
+import handleFormItemChange from "../Componets/Register/Helpers"
 
 function RegisterPage(){
-    const fields = [{ name: 'nombre', type: 'text'},
-        { name: 'apellido', type: 'text' },
-        { name: 'email', type: 'email' },
-        { name: 'telefono', type: 'tel' },
-        { name: 'password', type: 'password' },
-        { name: 'confirmar password', type: 'password' },
-    ]
+
+    const [formItems, setFormItems] = useState([
+        {
+            'name': 'Nombre',
+            'type': 'text',
+            'placeholder': '',
+            'value': ''
+        },
+        {
+            'name': 'Apellido',
+            'type': 'text',
+            'placeholder': 'Perez',
+            'value': ''
+        },
+        {
+            'name': 'Email',
+            'type': 'email',
+            'placeholder': '',
+            'value': ''
+        },
+        {
+            'name': 'Telefono',
+            'type': 'tel',
+            'placeholder': '',
+            'value': ''
+        },
+        {
+            'name': 'Password',
+            'type': 'password',
+            'value': ''
+        },
+        {
+            'name': 'Confirmar Password',
+            'type': 'password',
+            'value': ''
+        }
+    ])
+
     const handleSubmit = (event)=>{
-        console.log("Submitted!",event)
+        event.preventDefault()
+        console.log("Submitted!",formItems)
+    }
+
+    const handleChange = (name, newValue) => {
+        const updatedForm = handleFormItemChange(formItems, name, newValue)
+        setFormItems(updatedForm)
     }
 
     return (
         <form onSubmit={handleSubmit}>
-            {fields.map(field => <RegisterField name={field.name} type={field.type} />)}
-            <button type="submit">Register!</button>
+            {formItems.map(field => <RegisterField name={field.name} type={field.type} onChangeHandler={handleChange}/>)}
+            <button onClick={handleSubmit}>Register!</button>
         </form>
     )
 }

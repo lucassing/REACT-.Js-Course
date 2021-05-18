@@ -7,12 +7,17 @@ function RegisterField(props){
         return str.charAt(0).toUpperCase() + str.slice(1);
     }
 
-    console.log(props)
+    const changeHandler = (event) => {
+        const name = event.target.name
+        const value = event.target.value
+        return props.onChangeHandler(name, value)
+    }
+
     return(
         <Container fluid>
             <Row>
                 <Col xs={2}><label>{capitalize(props.name)}</label></Col>
-                <Col><input type={props.type} name={props.name}/></Col>
+                <Col><input type={props.type} name={props.name} onChange={changeHandler}/></Col>
             </Row>
         </Container>
     )

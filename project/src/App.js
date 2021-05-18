@@ -8,7 +8,25 @@ import ProductTablePage from "./Pages/ProductTablePage";
 import Menu from "./Componets/Menu";
 import DetailPage from "./Pages/DetailPage";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import firebase from 'firebase'
 function App() {
+    var firebaseConfig = {
+        apiKey: "AIzaSyCTbXEFfwfdFjeATQXfYvYGhUvWNBMB9sU",
+        authDomain: "lucas-ecommerce.firebaseapp.com",
+        projectId: "lucas-ecommerce",
+        storageBucket: "lucas-ecommerce.appspot.com",
+        messagingSenderId: "372302931856",
+        appId: "1:372302931856:web:cfc2826cb3e602d683b515"
+      };
+        if(!firebase.apps.length){
+            firebase.initializeApp(firebaseConfig);
+        }
+        else{
+            firebase.app()
+        }
+    
+
+    console.log("firebase", firebase.database())
   return (
         <BrowserRouter>
             <Container fluid>

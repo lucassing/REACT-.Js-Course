@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react"
 import Row from "../Componets/table/Rows/Row";
 import Headers from "../Componets/table/Headers";
+import {getProducts} from "../Services/ProductServices";
 
 function ProductTablePage(props){
 
@@ -25,23 +26,19 @@ function ProductTablePage(props){
 //     }
 
     useEffect(()=>{
-        getProducts()
+        getProducts().then(
+            (result) => {
+                setProducts(result)
+                setLoad(true)
+            },
+            (error) => {
+                setError(true)
+                setLoad(true)
+            }
+        )
     },[])
 
-    const getProducts = ()=>{
-        fetch("https://my-json-server.typicode.com/lucassing/REACT-.Js-Course/products")
-            .then(res=>res.json())
-            .then(
-                (result) => {
-                    setProducts(result)
-                    setLoad(true)
-                },
-                (error) => {
-                    setError(true)
-                    setLoad(true)
-                }
-            )
-    }
+
 
     if(error === 0){
         return <div>Error!!</div>
