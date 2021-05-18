@@ -28,7 +28,7 @@ function ProductTablePage(props){
     useEffect(()=>{
         getProducts().then(
             (result) => {
-                setProducts(result)
+                setProducts(result.data)
                 setLoad(true)
             },
             (error) => {

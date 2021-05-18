@@ -10,7 +10,7 @@ function DetailPage(props){
     useEffect(()=>{
         getProduct(props.match.params.id).then(
             (result) => {
-                setProduct(result)
+                setProduct(result.data)
                 setLoad(true)
             },
             (error) => {
