@@ -1,13 +1,19 @@
 import React from "react"
 import {Link} from "react-router-dom"
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
 function Menu(){
     return (
-            <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/alta">Register</Link></li>
-                <li><Link to="/login">Login</Link></li>
-                <li><Link to="/products">Products</Link></li>
-            </ul>
+        <Navbar bg="primary" variant="dark" className="justify-content-between">
+            <Navbar.Brand href="/">Market Istambul</Navbar.Brand>
+            <Nav className="mr-auto">
+                <Nav.Link href="/">Home</Nav.Link>
+                <Nav.Link href="/alta">Register</Nav.Link>
+                <Nav.Link href="/login">Login</Nav.Link>
+                <Nav.Link href="/products">Products</Nav.Link>
+                <Nav.Link href="/new">New Product</Nav.Link>
+            </Nav>
+        </Navbar>
     )
 }
 export default Menu

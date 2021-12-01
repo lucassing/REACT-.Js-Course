@@ -1,0 +1,33 @@
+body{
+    background: #FFFFEA;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#company_name{
+    background: #FF5E5B;
+    border-radius: 0.4rem;
+    text-align: center;
+}
+.contact_section{
+    background: #00CECB;
+    border-radius: 0.8rem;
+    width: 50rem;
+    margin: 0 auto;
+    text-align: center;
+}
+#contact_title{
+    background: #00CECB;
+    border-radius: 1rem;
+    text-align: center;
+}
+.element-contact-form{
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background: #D8D8D8;
+    align-self: center;
+}
+#value_policy_selected{
+    font-size: xx-large;
+    color: black;
+    background: #FFED66;
+}
+

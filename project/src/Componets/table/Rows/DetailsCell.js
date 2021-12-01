@@ -13,7 +13,11 @@ function DetailsCell(props){
             </Link>
         </td>)
     } else{
-        return (<td>{details}</td>)
+        return (<td>{details}
+            <br></br>
+            <Link to={"products/"+id}>
+                More...
+            </Link></td>)
     }
     return (<td>{details}</td>)
 

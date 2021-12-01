@@ -19,7 +19,7 @@ function Buy(props){
             <td>
                 <button onClick={buyPressed}>Buy!</button>
                 <div hidden={!visibleBuyMessage}>
-                    {buyMessage+props.product.id}
+                    {buyMessage+props.product}
                 </div>
             </td>
     )

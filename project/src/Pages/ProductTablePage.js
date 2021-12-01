@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react"
 import Row from "../Componets/table/Rows/Row";
 import Headers from "../Componets/table/Headers";
 import {getProducts} from "../Services/ProductServices";
+import firebase from "../Config/firebase";
 
 function ProductTablePage(props){
 
@@ -10,32 +11,13 @@ function ProductTablePage(props){
     const [error, setError] = useState(null)
     const [isLoaded, setLoad] = useState(false)
 
-//     const toInitial = (event)=>{
-//         getProducts()
-//         setFilter(parseInt(event.target.value))
-//         priceFilter(event)
-//     }
-// //
-//     const priceFilter = (event)=>{
-//         let filteredProducts = products.filter((product)=>{
-//             console.log("test",product.id,"vs",filter)
-//             return product.id==filter
-//         })
-//         console.log(filteredProducts)
-//         setProducts(filteredProducts)
-//     }
 
     useEffect(()=>{
-        getProducts().then(
-            (result) => {
-                setProducts(result.data)
-                setLoad(true)
-            },
-            (error) => {
-                setError(true)
-                setLoad(true)
-            }
-        )
+        firebase.db.collection("productos").get().then(querySnapshot=>{
+            console.log(querySnapshot.docs)
+            setProducts(querySnapshot.docs)
+            setLoad(true)
+        })
     },[])
 
 
@@ -52,10 +34,8 @@ function ProductTablePage(props){
                 <table>
                     <Headers titles={products[0]}/>
                     <tbody>
-                    {products.map(product => <Row element = {product}/>)}
+                    {products.map(product => <Row id={product.id} element = {product.data()}/>)}
                     </tbody>
-                    {/*<label htmlFor="filter">Qty Filter:</label>*/}
-                    {/*<input type="number" value={filter} onChange={toInitial} id='filter'/>*/}
                 </table>
             )
         }

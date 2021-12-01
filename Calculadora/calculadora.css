@@ -1,0 +1,33 @@
+.operator-bttn{
+    font-size: 25px;
+    height:40px;
+    width:40px;
+    border-radius: 0.4rem;
+    font-weight: bold;
+}
+.operand{
+    padding: 5px;
+    font-size: 20px;
+}
+.operand-input{
+    font-size: 20px;   
+}
+.operators{
+    padding: 20px;
+}
+.result{
+    padding: 20px;
+    font-size: 20px;
+}
+input{
+    font-size: 20px;
+    border-radius: 4px;
+}
+
+
+
+body{
+    background: #FFFFEA;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
